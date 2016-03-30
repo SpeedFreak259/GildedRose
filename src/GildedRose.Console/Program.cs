@@ -28,8 +28,18 @@ namespace GildedRose.Console
 
                           };
 
+            foreach (var item in app.Items)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("|{0}|{1}|{2}|", item.Name, item.SellIn, item.Quality));
+            }
+
             app.UpdateQuality();
 
+            foreach (var item in app.Items)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("|{0}|{1}|{2}|", item.Name, item.SellIn, item.Quality));
+            }
+            
             System.Console.ReadKey();
 
         }
