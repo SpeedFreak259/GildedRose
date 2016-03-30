@@ -11,9 +11,11 @@ Requirements and Rules
 
 Assumptions
 ------------------------------------
+- Inconsistency between specification and implementation, Brie increases in quality at 2 points per day once the SellIn drops below zero. Assumed to be a problem with the specification.
 - Assume items are never automatically removed from stock even when Quality or SellIn reaches zero.
 - Performance : No requirement for application to complete in a specific time limit.
 - "he doesn't believe in shared code ownership" Is not a sufficient argument to consider for good application design.
+- SellIn values continues to decrement beyond zero.
 
 
 Code Review
@@ -30,6 +32,7 @@ The following problems with the solution were identified with the existing versi
 | Insufficient separation of code     | Everything exists in single file; Program.cs   |
 | Product Catalogue Hard-coded        | Adding a product requires developer.  |
 | Product Ageing Rules Hard-Coded     | Very messy implementation of rules has lead to obfuscation. Rules specifically tied to product names. (case sensitive) |
+| No validation                       | Items are not validated as they are added to the catalogue, their initial state may breach the business rules.|
 | Data not persisted                  | Application state is not recorded between executes, each instance has its own 'source of truth' |
 | S.R.P. Violation                    | Products in stock and definition of products are mixed in the model. |
 | No record of when UpdateQuality ran | UpdateQuality always assumes a day has elapsed since it was last executed |
@@ -46,3 +49,32 @@ Recommended Actions
 4. Move catalogue to persisted storage
 5. Separation of business rules from the UpdateQuality method
 6. Add interfaces to allow for new specialist ageing rules to be implemented.
+
+Notes
+=====
+
+In the first instance I added a simple Debug.WriteLine to output the catalogue before and after the UpdateQuality to confirm the current behaviour before making any changes;
+
+Initial State
+-------------
+
+|Name|SellIn|Quality|
+|----|------|-------|
+|+5 Dexterity Vest|10|20|
+|Aged Brie|2|0|
+|Elixir of the Mongoose|5|7|
+|Sulfuras, Hand of Ragnaros|0|80|
+|Backstage passes to a TAFKAL80ETC concert|15|20|
+|Conjured Mana Cake|3|6|
+
+After UpdateQuality()
+---------------------
+
+|Name|SellIn|Quality|
+|----|------|-------|
+|+5 Dexterity Vest|9|19|
+|Aged Brie|1|1|
+|Elixir of the Mongoose|4|6|
+|Sulfuras, Hand of Ragnaros|0|80|
+|Backstage passes to a TAFKAL80ETC concert|14|21|
+|Conjured Mana Cake|2|5|
