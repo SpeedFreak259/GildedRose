@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace GildedRose.Console
+﻿namespace GildedRose.Console
 {
+    using System.Collections.Generic;
+
+    using GildedRose.Model;
+
     public class Program
     {
         IList<Item> Items;
@@ -121,14 +123,4 @@ namespace GildedRose.Console
         }
 
     }
-
-    public class Item
-    {
-        public string Name { get; set; }
-
-        public int SellIn { get; set; }
-
-        public int Quality { get; set; }
-    }
-
 }

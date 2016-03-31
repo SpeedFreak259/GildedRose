@@ -1,8 +1,13 @@
+// <copyright file="UpdateQualityTests.cs" company="Andy Baker">
+// See MIT-LICENSE.txt
+// </copyright>
 namespace GildedRose.Tests
 {
     using System.Collections.Generic;
 
     using GildedRose.Console;
+    using GildedRose.Model;
+
     using Xunit;
 
     using static GildedRose.Console.Program;
@@ -139,8 +144,11 @@ namespace GildedRose.Tests
             this.TestQualityAdjustment(ItemNameFixedQuality, DefaultSellIn, LegendaryQuality, LegendaryQuality);
         }
 
+        /// <summary>
+        /// Assert that a fixed quality item with zero remaining SellIn remains at initial quality.
+        /// </summary>
         [Fact]
-        public void GivenFixedQualityWithZeroRemainingSellIn_WhenUpdateQuality_ThenQualityReminsAtInitialValue()
+        public void GivenFixedQualityWithZeroRemainingSellIn_WhenUpdateQuality_ThenQualityRemainsAtInitialValue()
         {
             this.TestQualityAdjustment(ItemNameFixedQuality, 0, DefaultQuality, DefaultQuality);
         }
@@ -154,48 +162,76 @@ namespace GildedRose.Tests
             this.TestSellInAdjustment(ItemNameFixedQuality, DefaultSellIn, DefaultSellIn);
         }
 
+        /// <summary>
+        /// Assert that expiring item with 20 days remaining gains one quality point each day.
+        /// </summary>
         [Fact]
         public void GivenExpiringItemWith20Days_WhenUpdateQuality_QualityIncreasesByOnePoint()
         {
             this.TestQualityAdjustment(ItemNameExpiringItem, 20, 0, 1);
         }
 
+        /// <summary>
+        /// Assert that expiring item with 10 days remaining gains two quality points each day.
+        /// </summary>
         [Fact]
         public void GivenExpiringItemWith10Days_WhenUpdateQuality_QualityIncreasesByTwoPoints()
         {
             this.TestQualityAdjustment(ItemNameExpiringItem, 10, 0, 2);
         }
 
-        [Fact]
-        public void GivenExpiringItemWith20DaysMaxQuality_WhenUpdateQuality_QualityDoesNotExceedMaximum()
-        {
-            this.TestQualityAdjustment(ItemNameExpiringItem, 20, MaxQuality,MaxQuality);
-        }
-
-        [Fact]
-        public void GivenExpiringItemWith10DaysMaxQuality_WhenUpdateQuality_QualityDoesNotExceedMaximum()
-        {
-            this.TestQualityAdjustment(ItemNameExpiringItem, 10, MaxQuality, MaxQuality);
-        }
-
-        [Fact]
-        public void GivenExpiringItemWith5DaysMaxQuality_WhenUpdateQuality_QualityDoesNotExceedMaximum()
-        {
-            this.TestQualityAdjustment(ItemNameExpiringItem, 5, MaxQuality, MaxQuality);
-        }
-        
+        /// <summary>
+        /// Assert that expiring item with 5 days remaining increases by three quality points each day.
+        /// </summary>
         [Fact]
         public void GivenExpiringItemWith5Days_WhenUpdateQuality_QualityIncreasesByThreePoints()
         {
             this.TestQualityAdjustment(ItemNameExpiringItem, 5, 0, 3);
         }
 
+        /// <summary>
+        /// Assert that expiring item quality drops to zero when item expires.
+        /// </summary>
         [Fact]
-        public void GivenExpiringItemWith0Days_WhenUpdateQuality_QualityIncreasesByOnePoint()
+        public void GivenExpiringItemWith0Days_WhenUpdateQuality_QualityDropsToZero()
         {
             this.TestQualityAdjustment(ItemNameExpiringItem, 0, 10, 0);
         }
 
+        /// <summary>
+        /// Assert that expiring item with 20 days remaining at maximum quality does not exceed maximum quality.
+        /// </summary>
+        [Fact]
+        public void GivenExpiringItemWith20DaysMaxQuality_WhenUpdateQuality_QualityDoesNotExceedMaximum()
+        {
+            this.TestQualityAdjustment(ItemNameExpiringItem, 20, MaxQuality, MaxQuality);
+        }
+
+        /// <summary>
+        /// Assert that expiring item with 10 days remaining at maximum quality does not exceed maximum quality.
+        /// </summary>
+        [Fact]
+        public void GivenExpiringItemWith10DaysMaxQuality_WhenUpdateQuality_QualityDoesNotExceedMaximum()
+        {
+            this.TestQualityAdjustment(ItemNameExpiringItem, 10, MaxQuality, MaxQuality);
+        }
+
+        /// <summary>
+        /// Assert that expiring item with 5 days remaining at maximum quality does not exceed maximum quality.
+        /// </summary>
+        [Fact]
+        public void GivenExpiringItemWith5DaysMaxQuality_WhenUpdateQuality_QualityDoesNotExceedMaximum()
+        {
+            this.TestQualityAdjustment(ItemNameExpiringItem, 5, MaxQuality, MaxQuality);
+        }
+
+        /// <summary>
+        /// Implements the quality adjustment tests.
+        /// </summary>
+        /// <param name="itemName">Name of the item under test.</param>
+        /// <param name="sellIn">The remaining SellIn days.</param>
+        /// <param name="initialQuality">The initial quality score.</param>
+        /// <param name="expectedQuality">The expected quality score after calling Update Quality.</param>
         private void TestQualityAdjustment(string itemName, int sellIn, int initialQuality, int expectedQuality)
         {
             // Arrange
@@ -255,7 +291,8 @@ namespace GildedRose.Tests
         /// <returns>The list of items in the initial product catalogue.</returns>
         private IList<Item> GetInitialCatalogue()
         {
-            return new List<Item> {
+            return new List<Item>
+            {
                             new Item { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20 },
                             new Item { Name = "Aged Brie", SellIn = 2, Quality = 0 },
                             new Item { Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7 },
@@ -267,7 +304,7 @@ namespace GildedRose.Tests
                                     Quality = 20
                                 },
                             new Item { Name = "Conjured Mana Cake", SellIn = 3, Quality = 6 }
-           };
+            };
         }
     }
 }

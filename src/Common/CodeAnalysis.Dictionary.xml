@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Dictionary>
+  <Words>
+    <Recognized>
+    </Recognized>
+    <!--
+            This is a list of deprecated terms with their preferred alternates and is
+            used by UsePreferredTerms. The deprecated terms are case-insensitive,
+            however, make sure to pascal-case the preferred alternates. If a word
+            does not have a preferred alternate, simply leave it blank.
+        <Deprecated>
+            <Term PreferredAlternate="Metadata">MetaData</Term>
+        </Deprecated>
+        -->
+    <Compound>
+    </Compound>
+    <DiscreteExceptions>
+    </DiscreteExceptions>
+  </Words>
+  <Acronyms>
+    <CasingExceptions>
+    </CasingExceptions>
+  </Acronyms>
+</Dictionary>
