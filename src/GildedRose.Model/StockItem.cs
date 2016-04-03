@@ -10,7 +10,7 @@ namespace GildedRose.Model
     /// </summary>
     /// <seealso cref="GildedRose.Model.ProductCatalogueItem" />
     [Serializable]
-    public abstract class StockItem : ProductCatalogueItem
+    public class StockItem : ProductCatalogueItem
     {
         /// <summary>
         /// Gets or sets when the item was added to stock in Utc time.

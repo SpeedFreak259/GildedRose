@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="GildedRose.Model.Item">
-    <Position X="8" Y="1" Width="1.5" />
+    <Position X="8" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABAAAAAAAQAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Item.cs</FileName>
@@ -9,6 +9,14 @@
   </Class>
   <Class Name="GildedRose.Model.ProductCatalogueItem">
     <Position X="7.5" Y="3" Width="2.75" />
+    <InheritanceLine Type="GildedRose.Model.Item" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="8.875" Y="2.238" />
+        <Point X="8.875" Y="2.366" />
+        <Point X="8.875" Y="2.366" />
+        <Point X="8.875" Y="3" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ProductCatalogueItem.cs</FileName>
