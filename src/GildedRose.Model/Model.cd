@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GildedRose.Model.Item">
+    <Position X="8" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAQAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GildedRose.Model.ProductCatalogueItem">
+    <Position X="7.5" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProductCatalogueItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GildedRose.Model.QualityUpdateRule">
+    <Position X="3.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>QualityUpdateRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GildedRose.Model.QualityUpdateRuleQualityAbsolute">
+    <Position X="4" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>QualityUpdateRuleQualityAbsolute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GildedRose.Model.QualityUpdateRuleQualityDelta">
+    <Position X="0.75" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>QualityUpdateRuleQualityDelta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GildedRose.Model.StockItem">
+    <Position X="7.5" Y="4.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StockItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
