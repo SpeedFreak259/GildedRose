@@ -34,7 +34,7 @@
         [Fact]
         public void GivenDeltaRule_WhenFactoryCalled_ThenDeltaProcessorInstanceReturned()
         {
-            FactoryAssertion(BlankDeltaRule, typeof(QualityRuleProcessorDelta));
+            this.FactoryAssertion(BlankDeltaRule, typeof(QualityRuleProcessorDelta));
         }
 
         /// <summary>

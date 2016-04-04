@@ -62,6 +62,7 @@
     <Compile Include="QualityUpdateRule.cs" />
     <Compile Include="QualityUpdateRuleQualityAbsolute.cs" />
     <Compile Include="QualityUpdateRuleQualityDelta.cs" />
+    <Compile Include="SellInUpdateRule.cs" />
     <Compile Include="StockItem.cs" />
   </ItemGroup>
   <ItemGroup>

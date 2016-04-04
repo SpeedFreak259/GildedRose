@@ -20,5 +20,13 @@ namespace GildedRose.Model
         /// The quality adjustment rules.
         /// </value>
         public IList<QualityUpdateRule> QualityAdjustmentRules { get; } = new List<QualityUpdateRule>();
+
+        /// <summary>
+        /// Gets or sets the sell in rule. Defaults to standard <see cref="SellInUpdateRule"/>
+        /// </summary>
+        /// <value>
+        /// The sell in rule.
+        /// </value>
+        public SellInUpdateRule SellInRule { get; set; } = new SellInUpdateRule();
     }
 }
