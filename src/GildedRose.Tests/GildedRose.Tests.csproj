@@ -68,6 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="QualityRuleProcessorAbsoluteTests.cs" />
+    <Compile Include="QualityRuleProcessorDeltaTests.cs" />
     <Compile Include="UpdateQualityTests.cs" />
   </ItemGroup>
   <ItemGroup>

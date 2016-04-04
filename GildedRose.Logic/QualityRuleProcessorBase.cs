@@ -7,6 +7,7 @@ namespace GildedRose.Logic
 
     using GildedRose.Model;
     using Microsoft.Practices.Unity.Utility;
+    using Properties;
 
     /// <summary>
     /// Defined the base implementation of the quality rule processor.

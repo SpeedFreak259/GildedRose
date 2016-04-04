@@ -1,7 +1,4 @@
-﻿// <copyright file="QualityRuleProcessorAbsoluteTests.cs" company="Andy Baker">
-// See MIT-LICENSE.txt
-// </copyright>
-namespace GildedRose.Tests
+﻿namespace GildedRose.Tests
 {
     using System;
 
@@ -10,10 +7,7 @@ namespace GildedRose.Tests
 
     using Xunit;
 
-    /// <summary>
-    /// Defines the tests for the <see cref="QualityRuleProcessorAbsolute"/>.
-    /// </summary>
-    public class QualityRuleProcessorAbsoluteTests
+    public class QualityRuleProcessorDeltaTests
     {
         /// <summary>
         /// Gets the blank stock item.
@@ -29,7 +23,7 @@ namespace GildedRose.Tests
         /// <value>
         /// The blank rule.
         /// </value>
-        private static QualityUpdateRuleQualityAbsolute BlankRule => new QualityUpdateRuleQualityAbsolute();
+        private static QualityUpdateRuleQualityDelta BlankRule => new QualityUpdateRuleQualityDelta();
 
         /// <summary>
         /// Gets a blank delta rule.
@@ -37,7 +31,7 @@ namespace GildedRose.Tests
         /// <value>
         /// The delta rule.
         /// </value>
-        private static QualityUpdateRuleQualityDelta DeltaRule => new QualityUpdateRuleQualityDelta();
+        private static QualityUpdateRuleQualityAbsolute AbsoluteRule => new QualityUpdateRuleQualityAbsolute();
 
         /// <summary>
         /// Asserts that the process rule is Guarded.
@@ -46,7 +40,7 @@ namespace GildedRose.Tests
         public void GivenNullRule_WhenProcessRule_ThenThrowsArgumentException()
         {
             // Arrange
-            var ruleProcessor = new QualityRuleProcessorAbsolute();
+            var ruleProcessor = new QualityRuleProcessorDelta();
 
             // Act, Assert
             Assert.Throws<ArgumentNullException>(() => ruleProcessor.ProcessRule(null, BlankStockItem));
@@ -59,7 +53,7 @@ namespace GildedRose.Tests
         public void GivenNullStockItem_WhenProcessRule_ThenThrowsArgumentException()
         {
             // Arrange
-            var ruleProcessor = new QualityRuleProcessorAbsolute();
+            var ruleProcessor = new QualityRuleProcessorDelta();
 
             // Act, Assert
             Assert.Throws<ArgumentNullException>(() => ruleProcessor.ProcessRule(BlankRule, null));
@@ -72,10 +66,10 @@ namespace GildedRose.Tests
         public void GivenUnexpectedRuleType_WhenProcessRule_ThenThrowsArgumentException()
         {
             // Arrange
-            var ruleProcessore = new QualityRuleProcessorAbsolute();
+            var ruleProcessore = new QualityRuleProcessorDelta();
 
             // Act, Assert
-            Assert.Throws<ArgumentException>(() => ruleProcessore.ProcessRule(DeltaRule, BlankStockItem));
+            Assert.Throws<ArgumentException>(() => ruleProcessore.ProcessRule(AbsoluteRule, BlankStockItem));
         }
 
         /// <summary>
@@ -89,8 +83,8 @@ namespace GildedRose.Tests
         public void GivenAbsoluteRuleActiveBetweenDays10And7_WhenSellInIsOutsideRand_ThenQualityIsNotUpdated(int sellIn)
         {
             // Arrange
-            var ruleProcessor = new QualityRuleProcessorAbsolute();
-            var rule = new QualityUpdateRuleQualityAbsolute { ActiveFromSellIn = 10, ActiveUntilSellIn = 7, QualityValue = 100 };
+            var ruleProcessor = new QualityRuleProcessorDelta();
+            var rule = new QualityUpdateRuleQualityDelta { ActiveFromSellIn = 10, ActiveUntilSellIn = 7, QualityAdjustment = -1 };
             var stockItem = new StockItem { SellIn = sellIn, Quality = 0 };
 
             // Act
@@ -112,15 +106,15 @@ namespace GildedRose.Tests
         public void GivenAbsoluteRuleActiveBetweenDays10And7_WhenSellInIsBetween10And7_ThenQualityIsUpdated(int sellIn)
         {
             // Arrange
-            var ruleProcessor = new QualityRuleProcessorAbsolute();
-            var rule = new QualityUpdateRuleQualityAbsolute { ActiveFromSellIn = 10, ActiveUntilSellIn = 7, QualityValue = 100 };
-            var stockItem = new StockItem { SellIn = sellIn, Quality = 0 };
+            var ruleProcessor = new QualityRuleProcessorDelta();
+            var rule = new QualityUpdateRuleQualityDelta { ActiveFromSellIn = 10, ActiveUntilSellIn = 7, QualityAdjustment = -1 };
+            var stockItem = new StockItem { SellIn = sellIn, Quality = 20 };
 
             // Act
             ruleProcessor.ProcessRule(rule, stockItem);
 
             // Assert
-            Assert.Equal(100, stockItem.Quality);
+            Assert.Equal(19, stockItem.Quality);
         }
     }
 }

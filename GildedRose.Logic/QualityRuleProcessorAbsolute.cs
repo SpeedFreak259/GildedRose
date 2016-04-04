@@ -3,14 +3,12 @@
 // </copyright>
 namespace GildedRose.Logic
 {
-    using System;
-
     using GildedRose.Model;
-    using Microsoft.Practices.Unity.Utility;
 
     /// <summary>
     /// Defines the process for QualityUpdateRuleQualityAbsolute rules.
     /// </summary>
+    /// <seealso cref="GildedRose.Logic.QualityRuleProcessorBase{T}" />
     public class QualityRuleProcessorAbsolute : QualityRuleProcessorBase<QualityUpdateRuleQualityAbsolute>
     {
         /// <summary>
