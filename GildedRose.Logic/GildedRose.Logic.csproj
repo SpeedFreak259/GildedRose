@@ -65,12 +65,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IQualityRuleProcessor.cs" />
     <Compile Include="Properties\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ExceptionMessages.resx</DependentUpon>
     </Compile>
-    <Compile Include="ProductQualityCalculator.cs" />
+    <Compile Include="QualityRuleProcessorFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QualityRuleProcessorAbsolute.cs" />
     <Compile Include="QualityRuleProcessorBase.cs" />

@@ -13,9 +13,22 @@ namespace GildedRose.Logic
     /// Defined the base implementation of the quality rule processor.
     /// </summary>
     /// <typeparam name="TQualityRule">The type of the quality rule.</typeparam>
-    public abstract class QualityRuleProcessorBase<TQualityRule>
+    public abstract class QualityRuleProcessorBase<TQualityRule> : IQualityRuleProcessor
         where TQualityRule : QualityUpdateRule
     {
+        /// <summary>
+        /// Gets the quality rule.
+        /// </summary>
+        /// <value>
+        /// The quality rule cast to the specific implementation.
+        /// </value>
+        protected TQualityRule QualityRule { get; private set; }
+
+        /// <summary>
+        /// Gets the stock item.
+        /// </summary>
+        protected StockItem StockItem { get; private set; }
+
         /// <summary>
         /// Processes the quality rule. Guards the types and validates the rule is within date range.
         /// </summary>
@@ -27,9 +40,10 @@ namespace GildedRose.Logic
             Guard.ArgumentNotNull(rule, nameof(rule));
             Guard.ArgumentNotNull(stockItem, nameof(stockItem));
 
-            TQualityRule ruleAbsolute = rule as TQualityRule;
+            this.StockItem = stockItem;
+            this.QualityRule = rule as TQualityRule;
 
-            if (ruleAbsolute == null)
+            if (this.QualityRule == null)
             {
                 throw new ArgumentException(string.Format(ExceptionMessages.QualityRuleCastError, rule.GetType().Name, typeof(QualityUpdateRuleQualityAbsolute).Name));
             }
@@ -38,15 +52,13 @@ namespace GildedRose.Logic
             if ((stockItem.SellIn <= rule.ActiveFromSellIn)
                && (stockItem.SellIn >= rule.ActiveUntilSellIn))
             {
-                this.ApplyRule(ruleAbsolute, stockItem);
+                this.ApplyRule();
             }
         }
 
         /// <summary>
         /// Apply the rule to the stock item.
         /// </summary>
-        /// <param name="rule">The rule cast to the expected type.</param>
-        /// <param name="stockItem">The stock item.</param>
-        protected abstract void ApplyRule(TQualityRule rule, StockItem stockItem);
+        protected abstract void ApplyRule();
     }
 }

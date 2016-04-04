@@ -14,11 +14,9 @@ namespace GildedRose.Logic
         /// <summary>
         /// Applies the rule.
         /// </summary>
-        /// <param name="rule">The rule definition.</param>
-        /// <param name="stockItem">The stock item.</param>
-        protected override void ApplyRule(QualityUpdateRuleQualityAbsolute rule, StockItem stockItem)
+        protected override void ApplyRule()
         {
-            stockItem.Quality = rule.QualityValue;
+            this.StockItem.Quality = this.QualityRule.QualityValue;
         }
     }
 }

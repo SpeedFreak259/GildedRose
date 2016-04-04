@@ -14,11 +14,9 @@ namespace GildedRose.Logic
         /// <summary>
         /// Applies the delta rule by adjusting the stock item quality by the quality adjustment stored by the rule.
         /// </summary>
-        /// <param name="rule">The rule.</param>
-        /// <param name="stockItem">The stock item.</param>
-        protected override void ApplyRule(QualityUpdateRuleQualityDelta rule, StockItem stockItem)
+        protected override void ApplyRule()
         {
-            stockItem.Quality += rule.QualityAdjustment;
+            this.StockItem.Quality += this.QualityRule.QualityAdjustment;
         }
     }
 }

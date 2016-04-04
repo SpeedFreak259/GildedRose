@@ -116,5 +116,11 @@
             // Assert
             Assert.Equal(19, stockItem.Quality);
         }
+
+        [Fact]
+        public void REFACTORME_FactoryTests()
+        {
+            IQualityRuleProcessor x = QualityRuleProcessorFactory.GetProcessorForRule(BlankRule);
+        }
     }
 }
