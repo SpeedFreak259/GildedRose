@@ -1,8 +1,6 @@
 ﻿// <copyright file="Item.cs" company="Andy Baker">
 // See MIT-LICENSE.txt
 // </copyright>
-using System.Collections.Generic;
-
 namespace GildedRose.Model
 {
     /// <summary>

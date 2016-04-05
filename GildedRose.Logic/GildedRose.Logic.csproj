@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateTimeHelper.cs" />
     <Compile Include="IQualityRuleProcessor.cs" />
     <Compile Include="Properties\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -76,6 +77,7 @@
     <Compile Include="QualityRuleProcessorAbsolute.cs" />
     <Compile Include="QualityRuleProcessorBase.cs" />
     <Compile Include="QualityRuleProcessorDelta.cs" />
+    <Compile Include="StockAgeingProcess.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\Common\GildedRose.ruleset">

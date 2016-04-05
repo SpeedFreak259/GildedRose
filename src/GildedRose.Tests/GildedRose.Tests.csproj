@@ -71,6 +71,7 @@
     <Compile Include="QualityProcessRuleFactoryTests.cs" />
     <Compile Include="QualityRuleProcessorAbsoluteTests.cs" />
     <Compile Include="QualityRuleProcessorDeltaTests.cs" />
+    <Compile Include="StockAgeingProcessTests.cs" />
     <Compile Include="UpdateQualityTests.cs" />
   </ItemGroup>
   <ItemGroup>
