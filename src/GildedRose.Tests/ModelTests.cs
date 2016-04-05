@@ -27,7 +27,7 @@
         /// Asserts that default constructor initialises the QualityAdjustmentRules list.
         /// </summary>
         [Fact]
-        public void GivenCatalogueItem_WhenDefaultConstructor_ThenRuleListInitliasedEmpty()
+        public void GivenCatalogueItem_WhenDefaultConstructor_ThenRuleListInitialisedEmpty()
         {
             // Arrange
             var item = new ProductCatalogueItem();
