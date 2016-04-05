@@ -61,7 +61,16 @@ namespace GildedRose.Logic.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The quality rule with type {0} parameter is not castable to {1}..
+        ///   Looks up a localized string similar to No processor for rule type {0}..
+        /// </summary>
+        internal static string NoProcessorForRule {
+            get {
+                return ResourceManager.GetString("NoProcessorForRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The quality rule with type {0} parameter cannot be cast to {1}..
         /// </summary>
         internal static string QualityRuleCastError {
             get {

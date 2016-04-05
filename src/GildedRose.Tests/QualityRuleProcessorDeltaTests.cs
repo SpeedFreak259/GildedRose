@@ -120,7 +120,8 @@
         [Fact]
         public void REFACTORME_FactoryTests()
         {
-            IQualityRuleProcessor x = QualityRuleProcessorFactory.GetProcessorForRule(BlankRule);
+            var ruleProcessorFactory = new QualityRuleProcessorFactory();
+            IQualityRuleProcessor x = ruleProcessorFactory.GetProcessorForRule(BlankRule);
         }
     }
 }

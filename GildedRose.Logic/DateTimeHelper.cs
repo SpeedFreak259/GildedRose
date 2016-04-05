@@ -14,17 +14,17 @@ namespace GildedRose.Logic
         /// <summary>
         /// Returns the most recent of two date times.
         /// </summary>
-        /// <param name="datetime1">The datetime1.</param>
-        /// <param name="datetime2">The datetime2.</param>
+        /// <param name="firstDateTime">The datetime1.</param>
+        /// <param name="secondDateTime">The datetime2.</param>
         /// <returns>Most recent of two date times.</returns>
-        public static DateTime MostRecent(DateTime datetime1, DateTime datetime2)
+        public static DateTime MostRecent(DateTime firstDateTime, DateTime secondDateTime)
         {
-            if (datetime1 > datetime2)
+            if (firstDateTime > secondDateTime)
             {
-                return datetime1;
+                return firstDateTime;
             }
 
-            return datetime2;
+            return secondDateTime;
         }
     }
 }

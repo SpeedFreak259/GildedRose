@@ -9,10 +9,10 @@
     /// </summary>
     public class ModelTests
     {
-        [Fact]
         /// <summary>
         /// Asserts that default constructor for ProductCatalogueItem defaults to daily sellin adjustment of 1.
         /// </summary>
+        [Fact]
         public void GivenCatalogueItem_WhenDefaultConstructor_ThenDailySellInIsOne()
         {
             // Arrange
@@ -23,10 +23,10 @@
             Assert.Equal(1, item.SellInRule.DailyAdjustment);
         }
 
-        [Fact]
         /// <summary>
         /// Asserts that default constructor initialises the QualityAdjustmentRules list.
         /// </summary>
+        [Fact]
         public void GivenCatalogueItem_WhenDefaultConstructor_ThenRuleListInitliasedEmpty()
         {
             // Arrange

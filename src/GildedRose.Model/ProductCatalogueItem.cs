@@ -19,12 +19,12 @@ namespace GildedRose.Model
         public const int StandardQualityMaximum = 50;
 
         /// <summary>
-        /// Gets or sets the quality adjustment rules for this item.
+        /// Gets the quality adjustment rules for this item.
         /// </summary>
         /// <value>
         /// The quality adjustment rules.
         /// </value>
-        public IList<QualityUpdateRule> QualityAdjustmentRules { get; protected set; } = new List<QualityUpdateRule>();
+        public IList<QualityUpdateRule> QualityAdjustmentRules { get; } = new List<QualityUpdateRule>();
 
         /// <summary>
         /// Gets or sets the sell in rule. Defaults to standard <see cref="SellInUpdateRule"/>

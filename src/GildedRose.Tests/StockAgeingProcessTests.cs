@@ -53,9 +53,10 @@
             var stockDate = new DateTime(2016, 1, 1);
             var ageDate = ageingDate;
 
+            var ruleProcessorFactory = new QualityRuleProcessorFactory();
             var stock = this.GetBreadStockList(stockDate);
 
-            var ageingProcess = new StockAgeingProcess(() => ageDate);
+            var ageingProcess = new StockAgeingProcess(() => ageDate, ruleProcessorFactory);
 
             ageingProcess.RunStockAgeing(stock);
 

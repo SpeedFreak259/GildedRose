@@ -55,8 +55,11 @@
         private void FactoryAssertion<TRule>(TRule rule, Type expectedType)
             where TRule : QualityUpdateRule
         {
+            // Arrange
+            var processorFactory = new QualityRuleProcessorFactory();
+
             // Act
-            var processor = QualityRuleProcessorFactory.GetProcessorForRule(rule);
+            var processor = processorFactory.GetProcessorForRule(rule);
 
             // Assert
             Assert.IsAssignableFrom(expectedType, processor);

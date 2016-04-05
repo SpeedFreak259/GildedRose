@@ -117,7 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="NoProcessorForRule" xml:space="preserve">
+    <value>No processor for rule type {0}.</value>
+  </data>
   <data name="QualityRuleCastError" xml:space="preserve">
-    <value>The quality rule with type {0} parameter is not castable to {1}.</value>
+    <value>The quality rule with type {0} parameter cannot be cast to {1}.</value>
   </data>
 </root>

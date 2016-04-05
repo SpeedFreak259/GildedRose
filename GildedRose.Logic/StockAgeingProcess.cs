@@ -21,18 +21,26 @@ namespace GildedRose.Logic
         private readonly Func<DateTime> clock;
 
         /// <summary>
+        /// The rule processor factory.
+        /// </summary>
+        private readonly QualityRuleProcessorFactory processorFactory;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="StockAgeingProcess"/> class.
         /// </summary>
         /// <param name="clock">The clock function.</param>
-        public StockAgeingProcess(Func<DateTime> clock)
+        /// <param name="ruleProcessorFactory">Instance of the rule processor factory.</param>
+        public StockAgeingProcess(Func<DateTime> clock, QualityRuleProcessorFactory ruleProcessorFactory)
         {
             this.clock = clock;
+            this.processorFactory = ruleProcessorFactory;
         }
 
         /// <summary>
         /// Runs the stock ageing against the supplied stock list.
         /// </summary>
         /// <param name="stockItems">The stock items.</param>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0", Justification = "Parameter is guarded.")]
         public void RunStockAgeing(IEnumerable<StockItem> stockItems)
         {
             Guard.ArgumentNotNull(stockItems, nameof(stockItems));
@@ -61,7 +69,7 @@ namespace GildedRose.Logic
                 // iterate over the quality adjustment rules and apply them to the item.
                 foreach (var rule in item.QualityAdjustmentRules)
                 {
-                    var processor = QualityRuleProcessorFactory.GetProcessorForRule(rule);
+                    var processor = this.processorFactory.GetProcessorForRule(rule);
                     processor.ProcessRule(rule, item);
                 }
 

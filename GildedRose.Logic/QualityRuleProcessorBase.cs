@@ -34,7 +34,9 @@ namespace GildedRose.Logic
         /// </summary>
         /// <param name="rule">The quality update rule.</param>
         /// <param name="stockItem">The stock item.</param>
-        /// <exception cref="System.ArgumentException">.</exception>
+        /// <exception cref="ArgumentException">.</exception>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "1", Justification = "Parameter is guarded.")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0", Justification = "Parameter is guarded.")]
         public virtual void ProcessRule(QualityUpdateRule rule, StockItem stockItem)
         {
             Guard.ArgumentNotNull(rule, nameof(rule));
