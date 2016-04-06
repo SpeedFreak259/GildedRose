@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose.Model", "src\Gil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose.Logic", "GildedRose.Logic\GildedRose.Logic.csproj", "{CAC28780-B585-4DC8-85E0-9A9AEFD5CB56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose.SpecFlow", "GildedRose.SpecFlow\GildedRose.SpecFlow.csproj", "{FEA640C8-F69A-48C9-9CA7-E1F215D7D8B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{CAC28780-B585-4DC8-85E0-9A9AEFD5CB56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAC28780-B585-4DC8-85E0-9A9AEFD5CB56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAC28780-B585-4DC8-85E0-9A9AEFD5CB56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEA640C8-F69A-48C9-9CA7-E1F215D7D8B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEA640C8-F69A-48C9-9CA7-E1F215D7D8B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEA640C8-F69A-48C9-9CA7-E1F215D7D8B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEA640C8-F69A-48C9-9CA7-E1F215D7D8B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
