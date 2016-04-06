@@ -74,15 +74,15 @@ namespace GildedRose.SpecFlow
         
         [Xunit.TheoryAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "StockAgeing")]
-        [Xunit.TraitAttribute("Description", "Certain products degrade with age, bread for example, after the sell by date is r" +
-            "eached the product degrades twice as quickly. The minimum quality is zero.")]
+        [Xunit.TraitAttribute("Description", "Most products degrade with age. After the sell by date is reached the product deg" +
+            "rades twice as quickly. The minimum quality is zero.")]
         [Xunit.TraitAttribute("Category", "degradingProducts")]
         [Xunit.InlineDataAttribute("1", "9", "6", new string[0])]
         [Xunit.InlineDataAttribute("7", "3", "0", new string[0])]
         [Xunit.InlineDataAttribute("8", "1", "-1", new string[0])]
         [Xunit.InlineDataAttribute("9", "0", "-2", new string[0])]
         [Xunit.InlineDataAttribute("10", "0", "-3", new string[0])]
-        public virtual void CertainProductsDegradeWithAgeBreadForExampleAfterTheSellByDateIsReachedTheProductDegradesTwiceAsQuickly_TheMinimumQualityIsZero_(string stockdays, string quality, string shelflife, string[] exampleTags)
+        public virtual void MostProductsDegradeWithAge_AfterTheSellByDateIsReachedTheProductDegradesTwiceAsQuickly_TheMinimumQualityIsZero_(string stockdays, string quality, string shelflife, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "degradingProducts"};
@@ -90,8 +90,8 @@ namespace GildedRose.SpecFlow
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Certain products degrade with age, bread for example, after the sell by date is r" +
-                    "eached the product degrades twice as quickly. The minimum quality is zero.", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Most products degrade with age. After the sell by date is reached the product deg" +
+                    "rades twice as quickly. The minimum quality is zero.", @__tags);
 #line 8
 this.ScenarioSetup(scenarioInfo);
 #line 9
@@ -114,6 +114,38 @@ this.ScenarioSetup(scenarioInfo);
         
         [Xunit.TheoryAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "StockAgeing")]
+        [Xunit.TraitAttribute("Description", "Conjured products degrade quickly at 2 points per day.")]
+        [Xunit.InlineDataAttribute("0", "20", "7", new string[0])]
+        [Xunit.InlineDataAttribute("1", "18", "6", new string[0])]
+        [Xunit.InlineDataAttribute("7", "6", "0", new string[0])]
+        [Xunit.InlineDataAttribute("8", "2", "-1", new string[0])]
+        [Xunit.InlineDataAttribute("9", "0", "-2", new string[0])]
+        [Xunit.InlineDataAttribute("10", "0", "-3", new string[0])]
+        public virtual void ConjuredProductsDegradeQuicklyAt2PointsPerDay_(string stockdays, string quality, string shelflife, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Conjured products degrade quickly at 2 points per day.", exampleTags);
+#line 24
+this.ScenarioSetup(scenarioInfo);
+#line 25
+ testRunner.Given("an item added to stock with starting quality of 20 and shelf life of 7 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 26
+ testRunner.And("when the remaining shelf life is between 20 and 0 days the quality degrades at 2 " +
+                    "points per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+ testRunner.And("when the remaining shelf life is less than 0 days then quality degrades at 4 poin" +
+                    "ts per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+ testRunner.When(string.Format("the item has been in stock for {0} days", stockdays), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
+ testRunner.Then(string.Format("the quality should be equal to {0}", quality), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 30
+ testRunner.And(string.Format("the remaining shelf life should be {0}", shelflife), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.TheoryAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "StockAgeing")]
         [Xunit.TraitAttribute("Description", "Certain products improve with age, brie for example")]
         [Xunit.TraitAttribute("Category", "improvingProducts")]
         [Xunit.InlineDataAttribute("1", "2", "6", new string[0])]
@@ -128,17 +160,17 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Certain products improve with age, brie for example", @__tags);
-#line 26
+#line 44
 this.ScenarioSetup(scenarioInfo);
-#line 27
+#line 45
  testRunner.Given("an item added to stock with starting quality of 1 and shelf life of 7 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 28
+#line 46
  testRunner.And("the item improves at 1 quality point per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 29
+#line 47
  testRunner.When(string.Format("the item has been in stock for {0} days", stockdays), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 30
+#line 48
  testRunner.Then(string.Format("the quality should be equal to {0}", quality), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 31
+#line 49
  testRunner.And(string.Format("the remaining shelf life should be {0}", remainShelfLife), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -150,17 +182,17 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void AddAnImprovingItemToStockCheckTheQualityReachesAMaximumValue()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add an improving item to stock check the quality reaches a maximum value", ((string[])(null)));
-#line 40
+#line 58
 this.ScenarioSetup(scenarioInfo);
-#line 41
+#line 59
  testRunner.Given("an item added to stock with starting quality of 1 and shelf life of 7 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 42
+#line 60
  testRunner.And("the item improves at 1 quality point per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 43
+#line 61
  testRunner.When("the item has been in stock for 100 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 44
+#line 62
  testRunner.Then("the quality should be equal to 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 45
+#line 63
  testRunner.And("the remaining shelf life should be -93", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -186,26 +218,26 @@ this.ScenarioSetup(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A concert ticket improves in quality more quickly as the concert approaches and d" +
                     "rops to zero after the concert", @__tags);
-#line 49
+#line 67
 this.ScenarioSetup(scenarioInfo);
-#line 50
+#line 68
  testRunner.Given("an item added to stock with starting quality of 1 and shelf life of 20 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 51
+#line 69
  testRunner.And("when the remaining shelf life is greater than 10 days the quality improves at 1 p" +
                     "oints per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 52
+#line 70
  testRunner.And("when the remaining shelf life is between 10 and 6 days the quality improves at 2 " +
                     "points per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 53
+#line 71
  testRunner.And("when the remaining shelf life is between 5 and 0 days the quality improves at 3 p" +
                     "oints per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 54
+#line 72
  testRunner.And("when the remaining shelf life is -1 the quality becomes 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 55
+#line 73
  testRunner.When(string.Format("the item has been in stock for {0} days", stockdays), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 56
+#line 74
  testRunner.Then(string.Format("the quality should be equal to {0}", quality), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 57
+#line 75
  testRunner.And(string.Format("the remaining shelf life should be {0}", daysToConcert), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -231,15 +263,15 @@ this.ScenarioSetup(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("One product is legendary, its quality remains constant and the remaining shelf li" +
                     "fe does not adjust regardless of time on shelf", @__tags);
-#line 69
+#line 87
 this.ScenarioSetup(scenarioInfo);
-#line 70
+#line 88
  testRunner.Given("a legendary item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 71
+#line 89
  testRunner.When(string.Format("the item has been in stock for {0} days", stockdays), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 72
+#line 90
  testRunner.Then(string.Format("the quality should be equal to {0}", quality), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 73
+#line 91
  testRunner.And(string.Format("the remaining shelf life should be {0}", shelflife), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

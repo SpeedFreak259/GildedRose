@@ -5,7 +5,7 @@
 
 @degradingProducts
 
-Scenario Outline: Certain products degrade with age, bread for example, after the sell by date is reached the product degrades twice as quickly. The minimum quality is zero.
+Scenario Outline: Most products degrade with age. After the sell by date is reached the product degrades twice as quickly. The minimum quality is zero.
 	Given an item added to stock with starting quality of 10 and shelf life of 7 days
 	And when the remaining shelf life is between 7 and 0 days the quality degrades at 1 points per day
 	And when the remaining shelf life is less than 0 days then quality degrades at 2 points per day
@@ -20,6 +20,24 @@ Scenario Outline: Certain products degrade with age, bread for example, after th
 	| 8         | 1       | -1        |
 	| 9         | 0       | -2        | 
 	| 10        | 0       | -3        |
+
+Scenario Outline: Conjured products degrade quickly at 2 points per day.
+	Given an item added to stock with starting quality of 20 and shelf life of 7 days
+	And when the remaining shelf life is between 20 and 0 days the quality degrades at 2 points per day
+	And when the remaining shelf life is less than 0 days then quality degrades at 4 points per day
+	When the item has been in stock for <stockdays> days
+	Then the quality should be equal to <quality>
+	And the remaining shelf life should be <shelflife>
+
+	Examples:
+	| stockdays | quality | shelflife |
+	| 0         | 20      | 7         |
+	| 1         | 18      | 6         |
+	| 7         | 6       | 0         |
+	| 8         | 2       | -1        | 
+	| 9         | 0       | -2        |
+	| 10        | 0       | -3        |
+
 
 @improvingProducts
 
