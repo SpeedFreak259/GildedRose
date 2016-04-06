@@ -73,6 +73,11 @@ namespace GildedRose.Logic
                     processor.ProcessRule(rule, item);
                 }
 
+                if (item.Quality > item.MaxQuality)
+                {
+                    item.Quality = item.MaxQuality;
+                }
+
                 // record when the quality calculation was correct.
                 lastUpdate = lastUpdate.AddDays(1);
             }

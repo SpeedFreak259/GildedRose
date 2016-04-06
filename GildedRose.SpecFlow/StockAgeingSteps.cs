@@ -23,7 +23,7 @@ namespace GildedRose.SpecFlow
         {
             stockItem.Quality = p0;
             stockItem.SellIn = p1;
-            stockItem.AddedToStockUtc = DateTime.UtcNow;
+            stockItem.AddedToStockUtc = new DateTime(2016, 1, 1);
             storeStock.Add(stockItem);
         }
         
@@ -34,8 +34,36 @@ namespace GildedRose.SpecFlow
             degradingQuality.QualityAdjustment = -p0;
             stockItem.QualityAdjustmentRules.Add(degradingQuality);
         }
-        
-        [When(@"the item has been in stock for (.*) day")]
+
+        [Given(@"the item improves at (.*) quality point per day")]
+        public void GivenTheItemImprovesAtQualityPointPerDay(int p0)
+        {
+            var improvingQuality = new QualityUpdateRuleQualityDelta();
+            improvingQuality.QualityAdjustment = p0;
+            stockItem.QualityAdjustmentRules.Add(improvingQuality);
+        }
+
+        [Given(@"when the remaining shelf life is between (.*) and (.*) days the quality degrades at (.*) points per day")]
+        public void GivenWhenTheRemainingShelfLifeIsBetweenAndDaysTheQualityDegradesAtPointsPerDay(int p0, int p1, int p2)
+        {
+            var degradingQuality = new QualityUpdateRuleQualityDelta();
+            degradingQuality.ActiveFromSellIn = p0;
+            degradingQuality.ActiveUntilSellIn = p1;
+            degradingQuality.QualityAdjustment = -p2;
+            stockItem.QualityAdjustmentRules.Add(degradingQuality);
+        }
+
+        [Given(@"when the remaining shelf life is less than (.*) days then quality degrades at (.*) points per day")]
+        public void GivenWhenTheRemainingShelfLifeIsLessThatDaysThenQualityDegradesAtPointsPerDay(int p0, int p1)
+        {
+            var degradingQuality = new QualityUpdateRuleQualityDelta();
+            degradingQuality.ActiveFromSellIn = p0 - 1;
+            degradingQuality.ActiveUntilSellIn = int.MinValue;
+            degradingQuality.QualityAdjustment = -p1;
+            stockItem.QualityAdjustmentRules.Add(degradingQuality);
+        }
+
+        [When(@"the item has been in stock for (.*) days")]
         public void WhenTheItemHasBeenInStockForDay(int p0)
         {
             this.currentStoreDate = stockItem.AddedToStockUtc.AddDays(p0);
@@ -45,7 +73,7 @@ namespace GildedRose.SpecFlow
             
         }
         
-        [Then(@"the quality should be reduced to (.*)")]
+        [Then(@"the quality should be equal to (.*)")]
         public void ThenTheQualityShouldBeReducedTo(int p0)
         {
             Assert.Equal(p0, stockItem.Quality);
