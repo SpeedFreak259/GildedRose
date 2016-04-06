@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="DateTimeHelper.cs" />
     <Compile Include="IQualityRuleProcessor.cs" />
+    <Compile Include="IStockRepository.cs" />
     <Compile Include="Properties\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
