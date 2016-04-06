@@ -55,6 +55,10 @@
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -68,6 +72,7 @@
     <Compile Include="DateTimeHelper.cs" />
     <Compile Include="IQualityRuleProcessor.cs" />
     <Compile Include="IStockRepository.cs" />
+    <Compile Include="JsonFileStockRepository.cs" />
     <Compile Include="Properties\ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,6 +84,11 @@
     <Compile Include="QualityRuleProcessorBase.cs" />
     <Compile Include="QualityRuleProcessorDelta.cs" />
     <Compile Include="StockAgeingProcess.cs" />
+    <Compile Include="Properties\TraceMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TraceMessages.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\Common\GildedRose.ruleset">
@@ -109,6 +119,10 @@
     <EmbeddedResource Include="Properties\ExceptionMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\TraceMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TraceMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

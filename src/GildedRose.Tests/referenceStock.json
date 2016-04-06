@@ -1,0 +1,48 @@
+[
+  {
+    "AddedToStockUtc": "2016-01-01T00:00:00",
+    "QualityRecalculatedUtc": "0001-01-01T00:00:00",
+    "QualityAdjustmentRules": [
+      {
+        "$type": "GildedRose.Model.QualityUpdateRuleQualityDelta, GildedRose.Model",
+        "QualityAdjustment": 1,
+        "ActiveFromSellIn": 2147483647,
+        "ActiveUntilSellIn": -2147483648
+      }
+    ],
+    "SellInRule": {
+      "DailyAdjustment": 1
+    },
+    "MaxQuality": 50,
+    "MinQuality": 0,
+    "Name": "Brie",
+    "SellIn": 8,
+    "Quality": 5
+  },
+  {
+    "AddedToStockUtc": "2016-01-01T00:00:00",
+    "QualityRecalculatedUtc": "0001-01-01T00:00:00",
+    "QualityAdjustmentRules": [
+      {
+        "$type": "GildedRose.Model.QualityUpdateRuleQualityDelta, GildedRose.Model",
+        "QualityAdjustment": -1,
+        "ActiveFromSellIn": 2147483647,
+        "ActiveUntilSellIn": 0
+      },
+      {
+        "$type": "GildedRose.Model.QualityUpdateRuleQualityDelta, GildedRose.Model",
+        "QualityAdjustment": -2,
+        "ActiveFromSellIn": -1,
+        "ActiveUntilSellIn": -2147483648
+      }
+    ],
+    "SellInRule": {
+      "DailyAdjustment": 1
+    },
+    "MaxQuality": 50,
+    "MinQuality": 0,
+    "Name": "Bread",
+    "SellIn": 7,
+    "Quality": 10
+  }
+]

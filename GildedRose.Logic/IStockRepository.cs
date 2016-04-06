@@ -19,13 +19,14 @@ namespace GildedRose.Logic
         /// Loads the stock list.
         /// </summary>
         /// <returns>Returns a <see cref="IList{T}"/> of <see cref="StockItem"/>.</returns>
-        Task<IList<StockItem>> LoadStockList();
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures", Justification = "Simple list wrapped in task.")]
+        Task<IList<StockItem>> LoadStockListAsync();
 
         /// <summary>
         /// Saves the stock list.
         /// </summary>
         /// <param name="stockList">The stock items to persist.</param>
         /// <returns>A task of bool.</returns>
-        Task<bool> SaveStockList(IEnumerable<StockItem> stockList);
+        Task<bool> SaveStockListAsync(IEnumerable<StockItem> stockList);
     }
 }
