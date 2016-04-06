@@ -43,6 +43,16 @@ namespace GildedRose.SpecFlow
             stockItem.QualityAdjustmentRules.Add(improvingQuality);
         }
 
+        [Given(@"a legendary item")]
+        public void GivenALegendaryItem()
+        {
+            this.stockItem.SellIn = 0;
+            this.stockItem.Quality = 80;
+            this.stockItem.MaxQuality = 80;
+            this.stockItem.SellInRule.DailyAdjustment = 0;
+            this.stockItem.QualityAdjustmentRules.Clear();
+        }
+        
         [Given(@"when the remaining shelf life is between (.*) and (.*) days the quality degrades at (.*) points per day")]
         public void GivenWhenTheRemainingShelfLifeIsBetweenAndDaysTheQualityDegradesAtPointsPerDay(int p0, int p1, int p2)
         {

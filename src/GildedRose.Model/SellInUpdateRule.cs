@@ -25,6 +25,6 @@ namespace GildedRose.Model
         /// <value>
         /// The daily adjustment.
         /// </value>
-        public int DailyAdjustment { get; protected set;  }
+        public int DailyAdjustment { get;  set;  }
     }
 }
