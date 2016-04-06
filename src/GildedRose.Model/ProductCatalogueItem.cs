@@ -19,6 +19,11 @@ namespace GildedRose.Model
         public const int StandardQualityMaximum = 50;
 
         /// <summary>
+        /// The standard minimum quality value.
+        /// </summary>
+        public const int StandardQualityMinimum = 0;
+
+        /// <summary>
         /// Gets the quality adjustment rules for this item.
         /// </summary>
         /// <value>
@@ -41,5 +46,13 @@ namespace GildedRose.Model
         /// The maximum quality.
         /// </value>
         public int MaxQuality { get; set; } = StandardQualityMaximum;
+
+        /// <summary>
+        /// Gets or sets the minimum quality.
+        /// </summary>
+        /// <value>
+        /// The minimum quality.
+        /// </value>
+        public int MinQuality { get; set; } = StandardQualityMinimum;
     }
 }

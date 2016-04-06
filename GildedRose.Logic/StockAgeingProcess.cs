@@ -73,9 +73,15 @@ namespace GildedRose.Logic
                     processor.ProcessRule(rule, item);
                 }
 
+                // ensure quality remains in bounds.
                 if (item.Quality > item.MaxQuality)
                 {
                     item.Quality = item.MaxQuality;
+                }
+
+                if (item.Quality < item.MinQuality)
+                {
+                    item.Quality = item.MinQuality;
                 }
 
                 // record when the quality calculation was correct.
