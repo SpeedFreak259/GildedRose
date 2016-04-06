@@ -216,6 +216,132 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "StockAgeing")]
+        [Xunit.TraitAttribute("Description", "Add a concert ticket and check the quality improves slowly two weeks out")]
+        [Xunit.TraitAttribute("Category", "concertTickets")]
+        public virtual void AddAConcertTicketAndCheckTheQualityImprovesSlowlyTwoWeeksOut()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add a concert ticket and check the quality improves slowly two weeks out", new string[] {
+                        "concertTickets"});
+#line 54
+this.ScenarioSetup(scenarioInfo);
+#line 55
+ testRunner.Given("an item added to stock with starting quality of 1 and shelf life of 20 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 56
+ testRunner.And("when the remaining shelf life is greater than 10 days the quality improves at 1 p" +
+                    "oints per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 57
+ testRunner.And("when the remaining shelf life is between 10 and 6 days the quality improves at 2 " +
+                    "points per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
+ testRunner.And("when the remaining shelf life is between 5 and 0 days the quality improves at 3 p" +
+                    "oints per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 59
+ testRunner.And("when the remaining shelf life is 0 the quality becomes 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 60
+ testRunner.When("the item has been in stock for 9 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 61
+ testRunner.Then("the quality should be equal to 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 62
+ testRunner.And("the remaining shelf life should be 11", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "StockAgeing")]
+        [Xunit.TraitAttribute("Description", "Add a concert ticket and check the quality improves more quickly 10 days out")]
+        public virtual void AddAConcertTicketAndCheckTheQualityImprovesMoreQuickly10DaysOut()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add a concert ticket and check the quality improves more quickly 10 days out", ((string[])(null)));
+#line 64
+this.ScenarioSetup(scenarioInfo);
+#line 65
+ testRunner.Given("an item added to stock with starting quality of 1 and shelf life of 20 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 66
+ testRunner.And("when the remaining shelf life is greater than 10 days the quality improves at 1 p" +
+                    "oints per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
+ testRunner.And("when the remaining shelf life is between 10 and 6 days the quality improves at 2 " +
+                    "points per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 68
+ testRunner.And("when the remaining shelf life is between 5 and 0 days the quality improves at 3 p" +
+                    "oints per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 69
+ testRunner.And("when the remaining shelf life is 0 the quality becomes 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 70
+ testRunner.When("the item has been in stock for 15 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 71
+ testRunner.Then("the quality should be equal to 23", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 72
+ testRunner.And("the remaining shelf life should be 5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "StockAgeing")]
+        [Xunit.TraitAttribute("Description", "Add a concert ticket and check the quality is highest on the day of the concert")]
+        public virtual void AddAConcertTicketAndCheckTheQualityIsHighestOnTheDayOfTheConcert()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add a concert ticket and check the quality is highest on the day of the concert", ((string[])(null)));
+#line 74
+this.ScenarioSetup(scenarioInfo);
+#line 75
+ testRunner.Given("an item added to stock with starting quality of 1 and shelf life of 20 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 76
+ testRunner.And("when the remaining shelf life is greater than 10 days the quality improves at 1 p" +
+                    "oints per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 77
+ testRunner.And("when the remaining shelf life is between 10 and 6 days the quality improves at 2 " +
+                    "points per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 78
+ testRunner.And("when the remaining shelf life is between 5 and 0 days the quality improves at 3 p" +
+                    "oints per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 79
+ testRunner.And("when the remaining shelf life is -1 the quality becomes 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 80
+ testRunner.When("the item has been in stock for 20 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 81
+ testRunner.Then("the quality should be equal to 38", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 82
+ testRunner.And("the remaining shelf life should be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "StockAgeing")]
+        [Xunit.TraitAttribute("Description", "Add a concert ticket and check the quality is zero after the date of the concert")]
+        public virtual void AddAConcertTicketAndCheckTheQualityIsZeroAfterTheDateOfTheConcert()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add a concert ticket and check the quality is zero after the date of the concert", ((string[])(null)));
+#line 84
+this.ScenarioSetup(scenarioInfo);
+#line 85
+ testRunner.Given("an item added to stock with starting quality of 1 and shelf life of 20 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 86
+ testRunner.And("when the remaining shelf life is greater than 10 days the quality improves at 1 p" +
+                    "oints per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 87
+ testRunner.And("when the remaining shelf life is between 10 and 6 days the quality improves at 2 " +
+                    "points per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 88
+ testRunner.And("when the remaining shelf life is between 5 and 0 days the quality improves at 3 p" +
+                    "oints per day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 89
+ testRunner.And("when the remaining shelf life is -1 the quality becomes 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 90
+ testRunner.When("the item has been in stock for 21 days", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 91
+ testRunner.Then("the quality should be equal to 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 92
+ testRunner.And("the remaining shelf life should be -1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.0.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

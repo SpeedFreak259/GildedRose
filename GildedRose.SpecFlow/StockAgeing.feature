@@ -50,5 +50,43 @@ Scenario: Add an improving item to stock check the quality reaches a maximum val
 	Then the quality should be equal to 50
 	And the remaining shelf life should be -93
 
+@concertTickets
+Scenario: Add a concert ticket and check the quality improves slowly two weeks out
+	Given an item added to stock with starting quality of 1 and shelf life of 20 days
+	And when the remaining shelf life is greater than 10 days the quality improves at 1 points per day
+	And when the remaining shelf life is between 10 and 6 days the quality improves at 2 points per day
+	And when the remaining shelf life is between 5 and 0 days the quality improves at 3 points per day
+	And when the remaining shelf life is 0 the quality becomes 0
+	When the item has been in stock for 9 days
+	Then the quality should be equal to 10
+	And the remaining shelf life should be 11
 
+Scenario: Add a concert ticket and check the quality improves more quickly 10 days out
+	Given an item added to stock with starting quality of 1 and shelf life of 20 days
+	And when the remaining shelf life is greater than 10 days the quality improves at 1 points per day
+	And when the remaining shelf life is between 10 and 6 days the quality improves at 2 points per day
+	And when the remaining shelf life is between 5 and 0 days the quality improves at 3 points per day
+	And when the remaining shelf life is 0 the quality becomes 0
+	When the item has been in stock for 15 days
+	Then the quality should be equal to 23
+	And the remaining shelf life should be 5
 
+Scenario: Add a concert ticket and check the quality is highest on the day of the concert
+	Given an item added to stock with starting quality of 1 and shelf life of 20 days
+	And when the remaining shelf life is greater than 10 days the quality improves at 1 points per day
+	And when the remaining shelf life is between 10 and 6 days the quality improves at 2 points per day
+	And when the remaining shelf life is between 5 and 0 days the quality improves at 3 points per day
+	And when the remaining shelf life is -1 the quality becomes 0
+	When the item has been in stock for 20 days
+	Then the quality should be equal to 38
+	And the remaining shelf life should be 0
+
+Scenario: Add a concert ticket and check the quality is zero after the date of the concert
+	Given an item added to stock with starting quality of 1 and shelf life of 20 days
+	And when the remaining shelf life is greater than 10 days the quality improves at 1 points per day
+	And when the remaining shelf life is between 10 and 6 days the quality improves at 2 points per day
+	And when the remaining shelf life is between 5 and 0 days the quality improves at 3 points per day
+	And when the remaining shelf life is -1 the quality becomes 0
+	When the item has been in stock for 21 days
+	Then the quality should be equal to 0
+	And the remaining shelf life should be -1

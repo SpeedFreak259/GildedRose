@@ -63,16 +63,52 @@ namespace GildedRose.SpecFlow
             stockItem.QualityAdjustmentRules.Add(degradingQuality);
         }
 
+        [Given(@"when the remaining shelf life is greater than (.*) days the quality improves at (.*) points per day")]
+        public void GivenWhenTheRemainingShelfLifeIsGreaterThanDaysTheQualityImprovesAtPointsPerDay(int p0, int p1)
+        {
+            var improvingQuality = new QualityUpdateRuleQualityDelta
+                                    {
+                                        ActiveUntilSellIn = p0 + 1,
+                                        QualityAdjustment = p1
+                                    };
+            stockItem.QualityAdjustmentRules.Add(improvingQuality);
+
+        }
+
+        [Given(@"when the remaining shelf life is between (.*) and (.*) days the quality improves at (.*) points per day")]
+        public void GivenWhenTheRemainingShelfLifeIsBetweenAndDaysTheQualityImprovesAtPointsPerDay(int p0, int p1, int p2)
+        {
+            var improvingQuality = new QualityUpdateRuleQualityDelta
+            {
+                ActiveFromSellIn = p0,
+                ActiveUntilSellIn = p1,
+                QualityAdjustment = p2
+            };
+            stockItem.QualityAdjustmentRules.Add(improvingQuality);
+        }
+
+        [Given(@"when the remaining shelf life is (.*) the quality becomes (.*)")]
+        public void GivenWhenTheRemainingShelfLifeIsTheQualityBecomes(int p0, int p1)
+        {
+            var absoluteQualityRule = new QualityUpdateRuleQualityAbsolute
+            {
+                ActiveFromSellIn = p0,
+                ActiveUntilSellIn = p0,
+                QualityValue = p1
+            };
+            stockItem.QualityAdjustmentRules.Add(absoluteQualityRule);
+        }
+
+
         [When(@"the item has been in stock for (.*) days")]
         public void WhenTheItemHasBeenInStockForDay(int p0)
         {
             this.currentStoreDate = stockItem.AddedToStockUtc.AddDays(p0);
             var stockAgeingProcess = new StockAgeingProcess(() => this.currentStoreDate, new QualityRuleProcessorFactory());
 
-            stockAgeingProcess.RunStockAgeing(this.storeStock);
-            
+            stockAgeingProcess.RunStockAgeing(this.storeStock);    
         }
-        
+
         [Then(@"the quality should be equal to (.*)")]
         public void ThenTheQualityShouldBeReducedTo(int p0)
         {
