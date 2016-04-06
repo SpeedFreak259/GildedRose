@@ -5,7 +5,6 @@ namespace GildedRose.Tests
 {
     using System.Collections.Generic;
 
-    using GildedRose.Console;
     using GildedRose.Model;
 
     using Xunit;

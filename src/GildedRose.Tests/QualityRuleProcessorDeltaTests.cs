@@ -7,6 +7,9 @@
 
     using Xunit;
 
+    /// <summary>
+    /// Defines the tests for the <see cref="QualityRuleProcessorDelta"/> processor.
+    /// </summary>
     public class QualityRuleProcessorDeltaTests
     {
         /// <summary>
