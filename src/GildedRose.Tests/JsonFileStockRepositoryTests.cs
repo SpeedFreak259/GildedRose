@@ -27,6 +27,14 @@
         private const string ReferenceStockFile = "referenceStock.json";
 
         /// <summary>
+        /// Gets the test stock date.
+        /// </summary>
+        /// <value>
+        /// The test stock date.
+        /// </value>
+        private static DateTime TestStockDate => new DateTime(2016, 1, 1);
+
+        /// <summary>
         /// Asserts that the sample stock list is persisted correctly to a file.
         /// </summary>
         [Fact]
@@ -76,36 +84,97 @@
         {
             var stock = new List<StockItem>();
 
-            var brie = new StockItem
-            {
-                Name = "Brie",
-                Quality = 5,
-                AddedToStockUtc = new DateTime(2016, 1, 1),
-                SellIn = 8
-            };
-
-            var brieAdjustmentRule = new QualityUpdateRuleQualityDelta { QualityAdjustment = 1 };
-
-            brie.QualityAdjustmentRules.Add(brieAdjustmentRule);
-
-            var bread = new StockItem
-            {
-                Name = "Bread",
-                Quality = 10,
-                AddedToStockUtc = new DateTime(2016, 1, 1),
-                SellIn = 7
-            };
-
-            var breadAdjustmentRule1 = new QualityUpdateRuleQualityDelta { ActiveUntilSellIn = 0, QualityAdjustment = -1 };
-            var breadAdjustmentRule2 = new QualityUpdateRuleQualityDelta { ActiveFromSellIn = -1, QualityAdjustment = -2 };
-
-            bread.QualityAdjustmentRules.Add(breadAdjustmentRule1);
-            bread.QualityAdjustmentRules.Add(breadAdjustmentRule2);
-
-            stock.Add(brie);
-            stock.Add(bread);
+            stock.Add(this.GetBrie());
+            stock.Add(this.GetDexterityVest());
+            stock.Add(this.GetExilir());
+            stock.Add(this.GetSulfuras());
+            stock.Add(this.GetBackstagePass());
+            stock.Add(this.GetConjuredCake());
 
             return stock;
+        }
+
+        /// <summary>
+        /// Gets the brie.
+        /// </summary>
+        /// <returns>Item with quality rules</returns>
+        private StockItem GetBrie()
+        {
+            var item = new StockItem { Name = "Aged Brie", SellIn = 2, Quality = 0 };
+
+            item.QualityAdjustmentRules.Add(new QualityUpdateRuleQualityDelta { QualityAdjustment = 1 });
+            item.QualityAdjustmentRules.Add(new QualityUpdateRuleQualityDelta { ActiveFromSellIn = -1,  QualityAdjustment = 1 });
+
+            return item;
+        }
+
+        /// <summary>
+        /// Gets the dexterity vest.
+        /// </summary>
+        /// <returns>Item with quality rules</returns>
+        private StockItem GetDexterityVest()
+        {
+            var item = new StockItem { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20 };
+
+            item.QualityAdjustmentRules.Add(new QualityUpdateRuleQualityDelta { QualityAdjustment = -1 });
+            item.QualityAdjustmentRules.Add(new QualityUpdateRuleQualityDelta { ActiveFromSellIn = -1, QualityAdjustment = -1 });
+
+            return item;
+        }
+
+        /// <summary>
+        /// Gets the exilir.
+        /// </summary>
+        /// <returns>Item with quality rules</returns>
+        private StockItem GetExilir()
+        {
+            var item = new StockItem { Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7 };
+
+            item.QualityAdjustmentRules.Add(new QualityUpdateRuleQualityDelta { QualityAdjustment = -1 });
+            item.QualityAdjustmentRules.Add(new QualityUpdateRuleQualityDelta { ActiveFromSellIn = -1, QualityAdjustment = -1 });
+
+            return item;
+        }
+
+        /// <summary>
+        /// Gets the sulfuras.
+        /// </summary>
+        /// <returns>Item with quality rules</returns>
+        private StockItem GetSulfuras()
+        {
+            var item = new StockItem { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 };
+            item.SellInRule.DailyAdjustment = 0;
+
+            return item;
+        }
+
+        /// <summary>
+        /// Gets the backstage pass.
+        /// </summary>
+        /// <returns>Item with quality rules</returns>
+        private StockItem GetBackstagePass()
+        {
+            var item = new StockItem { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 15, Quality = 20 };
+
+            item.QualityAdjustmentRules.Add(new QualityUpdateRuleQualityDelta { ActiveUntilSellIn = 0, QualityAdjustment = 1 });
+            item.QualityAdjustmentRules.Add(new QualityUpdateRuleQualityDelta { ActiveFromSellIn = 10, ActiveUntilSellIn = 0, QualityAdjustment = 1 });
+            item.QualityAdjustmentRules.Add(new QualityUpdateRuleQualityDelta { ActiveFromSellIn = 5,  ActiveUntilSellIn = 0, QualityAdjustment = 1 });
+            item.QualityAdjustmentRules.Add(new QualityUpdateRuleQualityAbsolute { ActiveFromSellIn = -1, ActiveUntilSellIn = -1, QualityValue = 0 });
+
+            return item;
+        }
+
+        /// <summary>
+        /// Gets the conjured cake.
+        /// </summary>
+        /// <returns>Item with quality rules</returns>
+        private StockItem GetConjuredCake()
+        {
+            var item = new StockItem { Name = "Conjured Mana Cake", SellIn = 3, Quality = 6 };
+            item.QualityAdjustmentRules.Add(new QualityUpdateRuleQualityDelta { QualityAdjustment = -2 });
+            item.QualityAdjustmentRules.Add(new QualityUpdateRuleQualityDelta { ActiveFromSellIn = -1, QualityAdjustment = -2 });
+
+            return item;
         }
 
         /// <summary>

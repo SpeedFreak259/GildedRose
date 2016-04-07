@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="DateTimeHelper.cs" />
     <Compile Include="IQualityRuleProcessor.cs" />
+    <Compile Include="IStockAgeingProcess.cs" />
     <Compile Include="IStockRepository.cs" />
     <Compile Include="JsonFileStockRepository.cs" />
     <Compile Include="Properties\ExceptionMessages.Designer.cs">

@@ -1,7 +1,7 @@
 [
   {
-    "AddedToStockUtc": "0001-01-01T00:00:00",
-    "QualityRecalculatedUtc": "0001-01-01T00:00:00",
+    "AddedToStockUtc": "2016-04-06T00:00:00",
+    "QualityRecalculatedUtc": "2016-04-06T00:00:00",
     "QualityAdjustmentRules": [
       {
         "$type": "GildedRose.Model.QualityUpdateRuleQualityDelta, GildedRose.Model",
@@ -26,8 +26,8 @@
     "Quality": 0
   },
   {
-    "AddedToStockUtc": "0001-01-01T00:00:00",
-    "QualityRecalculatedUtc": "0001-01-01T00:00:00",
+    "AddedToStockUtc": "2016-04-06T00:00:00",
+    "QualityRecalculatedUtc": "2016-04-06T00:00:00",
     "QualityAdjustmentRules": [
       {
         "$type": "GildedRose.Model.QualityUpdateRuleQualityDelta, GildedRose.Model",
@@ -52,8 +52,8 @@
     "Quality": 20
   },
   {
-    "AddedToStockUtc": "0001-01-01T00:00:00",
-    "QualityRecalculatedUtc": "0001-01-01T00:00:00",
+    "AddedToStockUtc": "2016-04-06T00:00:00",
+    "QualityRecalculatedUtc": "2016-04-06T00:00:00",
     "QualityAdjustmentRules": [
       {
         "$type": "GildedRose.Model.QualityUpdateRuleQualityDelta, GildedRose.Model",
@@ -78,21 +78,21 @@
     "Quality": 7
   },
   {
-    "AddedToStockUtc": "0001-01-01T00:00:00",
-    "QualityRecalculatedUtc": "0001-01-01T00:00:00",
+    "AddedToStockUtc": "2016-04-06T00:00:00",
+    "QualityRecalculatedUtc": "2016-04-06T00:00:00",
     "QualityAdjustmentRules": [],
     "SellInRule": {
       "DailyAdjustment": 0
     },
-    "MaxQuality": 50,
-    "MinQuality": 0,
+    "MaxQuality": 80,
+    "MinQuality": 80,
     "Name": "Sulfuras, Hand of Ragnaros",
     "SellIn": 0,
     "Quality": 80
   },
   {
-    "AddedToStockUtc": "0001-01-01T00:00:00",
-    "QualityRecalculatedUtc": "0001-01-01T00:00:00",
+    "AddedToStockUtc": "2016-04-06T00:00:00",
+    "QualityRecalculatedUtc": "2016-04-06T00:00:00",
     "QualityAdjustmentRules": [
       {
         "$type": "GildedRose.Model.QualityUpdateRuleQualityDelta, GildedRose.Model",
@@ -129,8 +129,8 @@
     "Quality": 20
   },
   {
-    "AddedToStockUtc": "0001-01-01T00:00:00",
-    "QualityRecalculatedUtc": "0001-01-01T00:00:00",
+    "AddedToStockUtc": "2016-04-06T00:00:00",
+    "QualityRecalculatedUtc": "2016-04-06T00:00:00",
     "QualityAdjustmentRules": [
       {
         "$type": "GildedRose.Model.QualityUpdateRuleQualityDelta, GildedRose.Model",

@@ -13,7 +13,7 @@ namespace GildedRose.Logic
     /// <summary>
     /// Defines the stock ageing process that applies the ageing to the stock items.
     /// </summary>
-    public class StockAgeingProcess
+    public class StockAgeingProcess : IStockAgeingProcess
     {
         /// <summary>
         /// Injectable clock instance.

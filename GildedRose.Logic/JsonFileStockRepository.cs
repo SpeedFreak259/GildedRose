@@ -51,7 +51,7 @@ namespace GildedRose.Logic
                 var json = await this.ReadFileAsync();
 
                 // deserialise
-                var settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
+                var settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto, Formatting = Formatting.Indented };
                 var stockList = JsonConvert.DeserializeObject<List<StockItem>>(json, settings);
 
                 return stockList;
