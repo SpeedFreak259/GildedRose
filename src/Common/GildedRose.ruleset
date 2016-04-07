@@ -232,6 +232,7 @@
     <Rule Id="CA5122" Action="Warning" />
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+    <Rule Id="SA1028" Action="None" />
     <Rule Id="SA1124" Action="None" />
     <Rule Id="SA1305" Action="Warning" />
     <Rule Id="SA1629" Action="Warning" />

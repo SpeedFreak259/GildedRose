@@ -1,6 +1,6 @@
 [
   {
-    "AddedToStockUtc": "0001-01-01T00:00:00",
+    "AddedToStockUtc": "2016-01-01T00:00:00",
     "QualityRecalculatedUtc": "0001-01-01T00:00:00",
     "QualityAdjustmentRules": [
       {
@@ -26,7 +26,7 @@
     "Quality": 0
   },
   {
-    "AddedToStockUtc": "0001-01-01T00:00:00",
+    "AddedToStockUtc": "2016-01-01T00:00:00",
     "QualityRecalculatedUtc": "0001-01-01T00:00:00",
     "QualityAdjustmentRules": [
       {
@@ -52,7 +52,7 @@
     "Quality": 20
   },
   {
-    "AddedToStockUtc": "0001-01-01T00:00:00",
+    "AddedToStockUtc": "2016-01-01T00:00:00",
     "QualityRecalculatedUtc": "0001-01-01T00:00:00",
     "QualityAdjustmentRules": [
       {
@@ -78,7 +78,7 @@
     "Quality": 7
   },
   {
-    "AddedToStockUtc": "0001-01-01T00:00:00",
+    "AddedToStockUtc": "2016-01-01T00:00:00",
     "QualityRecalculatedUtc": "0001-01-01T00:00:00",
     "QualityAdjustmentRules": [],
     "SellInRule": {
@@ -91,7 +91,7 @@
     "Quality": 80
   },
   {
-    "AddedToStockUtc": "0001-01-01T00:00:00",
+    "AddedToStockUtc": "2016-01-01T00:00:00",
     "QualityRecalculatedUtc": "0001-01-01T00:00:00",
     "QualityAdjustmentRules": [
       {
@@ -129,7 +129,7 @@
     "Quality": 20
   },
   {
-    "AddedToStockUtc": "0001-01-01T00:00:00",
+    "AddedToStockUtc": "2016-01-01T00:00:00",
     "QualityRecalculatedUtc": "0001-01-01T00:00:00",
     "QualityAdjustmentRules": [
       {

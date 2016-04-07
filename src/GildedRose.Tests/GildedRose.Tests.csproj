@@ -79,7 +79,6 @@
     <Compile Include="QualityProcessRuleFactoryTests.cs" />
     <Compile Include="QualityRuleProcessorAbsoluteTests.cs" />
     <Compile Include="QualityRuleProcessorDeltaTests.cs" />
-    <Compile Include="UpdateQualityTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\common\stylecop.json">

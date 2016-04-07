@@ -91,6 +91,12 @@
             stock.Add(this.GetBackstagePass());
             stock.Add(this.GetConjuredCake());
 
+            // Set the date when the items were added to stock
+            foreach (var item in stock)
+            {
+                item.AddedToStockUtc = TestStockDate;
+            }
+
             return stock;
         }
 
