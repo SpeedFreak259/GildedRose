@@ -4,14 +4,14 @@ Gilded Rose Refactor Notes
 Requirements and Rules
 ----------------------
 
-- Allow addition of new category
+- Allow addition of new category with new aageing behaviour.
 - Do not alter Item class or Items property
 - UpdateQuality method and Items property can be made static.
 
 
 Assumptions
 ------------------------------------
-- Inconsistency between specification and implementation, Brie increases in quality at 2 points per day once the SellIn drops below zero. Assumed to be a problem with the specification.
+- Inconsistency between specification and implementation, Brie increases in quality at 2 points per day once the SellIn drops below zero. Assumed to be a problem with the specification as it is not clear.
 - Assume items are never automatically removed from stock even when Quality or SellIn reaches zero.
 - Performance : No requirement for application to complete in a specific time limit.
 - "he doesn't believe in shared code ownership" Is not a sufficient argument to consider for good application design.
@@ -36,11 +36,12 @@ The following problems with the solution were identified with the existing versi
 | Data not persisted                  | Application state is not recorded between executes, each instance has its own 'source of truth' |
 | S.R.P. Violation                    | Products in stock and definition of products are mixed in the model. |
 | No record of when UpdateQuality ran | UpdateQuality always assumes a day has elapsed since it was last executed |
-| No automated code analysis          | Code Analysis and style rules are not enforced,
+| No automated code analysis          | Code Analysis and style rules are not enforced reducing maintainability |
+
 
 Recommended Actions
 -------------------
-0. Make minor modification to allow unit testing.
+0. In the first instance Make minor modification to allow unit testing.
   - Make UpdateQuality method public and static.
   - Make UpdateQuality method take items as a parameter.
 1. Write unit tests
@@ -78,3 +79,23 @@ After UpdateQuality()
 |Sulfuras, Hand of Ragnaros|0|80|
 |Backstage passes to a TAFKAL80ETC concert|14|21|
 |Conjured Mana Cake|2|5|
+
+ Changelog
+ ---------
+ Separation of Business logic, domain model and hosting process.
+ Extended model to allow definition of ageing rules against each item.
+ Added rule processors and factory to apply the rules
+ Removed hard-coded ageing rules and stock list
+ Added interfaces to allow extensibilty enabling further ageing rules are to be introduced.
+ Added Unity IoC
+ Unit tests with high degree of coverage
+ Added spec flow tests to allow end user / developers to understand specification.
+ Introduced Stylecop and code refactored to align with style rules
+ Added simple persistence layer to store current stock iventory outside of the app (local json file)
+ Record last quality update processing date to stock items so update quality only runs once per day and covers missed days.
+
+
+ Suggested further refactoring
+ -----------------------------
+ Add more tracing to make it clearer how the stock ageing process applied the rules to the items.
+ 
