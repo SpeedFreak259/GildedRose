@@ -3,9 +3,9 @@
 // </copyright>
 namespace GildedRose.Console
 {
-    using System;
-    using System.Linq;
+    using System;    
     using System.Collections.Generic;
+    using System.Linq;
 
     using GildedRose.Logic;
     using GildedRose.Model;
