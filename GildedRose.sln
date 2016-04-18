@@ -28,9 +28,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose.Console", "src\G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose.Model", "src\GildedRose.Model\GildedRose.Model.csproj", "{3BCF139C-DE45-4843-885B-237F19955C73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose.Logic", "GildedRose.Logic\GildedRose.Logic.csproj", "{CAC28780-B585-4DC8-85E0-9A9AEFD5CB56}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose.Logic", "src\GildedRose.Logic\GildedRose.Logic.csproj", "{CAC28780-B585-4DC8-85E0-9A9AEFD5CB56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose.SpecFlow", "GildedRose.SpecFlow\GildedRose.SpecFlow.csproj", "{FEA640C8-F69A-48C9-9CA7-E1F215D7D8B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose.SpecFlow", "src\GildedRose.SpecFlow\GildedRose.SpecFlow.csproj", "{FEA640C8-F69A-48C9-9CA7-E1F215D7D8B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
